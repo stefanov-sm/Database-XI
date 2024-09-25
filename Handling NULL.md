@@ -1,3 +1,4 @@
+```sql
 create temporary table a_table (id integer, address text); 
 insert into a_table 
 values
@@ -7,32 +8,31 @@ values
  (4, 'ж.к. Лозенец, бул. „Джеймс Баучер“ 5, 1164 София'),
  (5, 'nowhere'),
  (6, null);
-
-/*
- * My empyrical mnemonic rule:
- * Say "don't know" instead of "null" so that your common sense logic works correctly
- * An expression with NULL in it returns NULL.
- * except TRUE OR NULL and FALSE AND NULL 
-*/
-
+```
+ My empyrical mnemonic rule:  
+ Say "don't know" instead of "null" so that your common sense logic works correctly  
+ 
+ An expression with NULL in it returns NULL  
+ except `TRUE OR NULL` and `FALSE AND NULL`  
+```sql
 select 12 + null, 33 * 2 / null, 
 	false or null, true and null, 
 	true or null, false and null;
-
-
--- Use of IS NULL and IS NOT NULL unary postfix operators 
+```
+#### Use of `IS NULL` and `IS NOT NULL` unary postfix operators 
+```sql
 select	id, address from a_table 
 where address is null;
+```
+Using the `IS NULL` operator returns the correct result  
+Using the equality check operator (=) WHERE ADDRESS = NULL returns no results  
+Comparison operators do not work properly with NULL  
+`IS DISTINCT FROM` / `IS NOT DISTINCT FROM` operators work correctly with NULL.  
 
-/*
- * using the IS NULL operator returns the correct result
- * using the equality check operator (=) WHERE ADDRESS = NULL returns no results 
- * Comparison operators do not work properly with NULL.
- * IS DISTINCT FROM / IS NOT DISTINCT FROM operators work correctly with NULL.  
- *
- * Beware: Opposite expressions yield the same result
-*/
-
+> [!IMPORTANT]  
+> Beware: Opposite expressions yield the same result  
+> and have a good look at [this](https://wiki.postgresql.org/wiki/Don%27t_Do_This#SQL_constructs) article
+```sql
 select id, 
 	address > 'к' as res_a,
 	NOT address > 'к' as res_b
@@ -42,9 +42,9 @@ select id,
 	coalesce((address > 'к'), false) as res_a,
 	coalesce(NOT (address > 'к'), false) as res_b
 from a_table; 
-
-
--- Use of COALESCE and NULLIF 
+```
+#### Use of `COALESCE` and `NULLIF` 
+```sql
 select id, coalesce(address, '*** Безмислени данни ***') as address from a_table; 
 select id, nullif(address, 'nowhere') as address from a_table; 
 
