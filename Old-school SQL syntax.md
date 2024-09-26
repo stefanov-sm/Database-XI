@@ -1,6 +1,6 @@
 ### VERY BASIC SQL SYNTAX
 ```SQL
-<operator> ::= +|-|*|/|=|<>|>|>=|<|<=|AND|OR|NOT|IS [NOT] NULL|IS [NOT] DISTINCT FROM|IN|BETWEEN|CASE ;Among others
+<operator> ::= +|-|*|/|=|<>|>|>=|<|<=| || |AND|OR|NOT|IS [NOT] NULL|IS [NOT] DISTINCT FROM|IN|BETWEEN|CASE ;Among others
 
 <SELECT-STATEMENT> ::=
   SELECT <expression> [[AS] <alias>] [, <expression> [[AS] <alias>]]*
