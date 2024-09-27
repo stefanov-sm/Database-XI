@@ -5,8 +5,8 @@ select category_id, category_name from categories c
 where category_name = 'Seafood' or description = 'Cheeses';
 select * from customers c2;
 
-select customer_name as "Name", 'the city of ' || city as "Борислава" from customers c2
-where country = 'USA' order by "Борислава" desc, "Name" desc;
+select customer_name as "Name", 'the city of ' || city as "Р‘РѕСЂРёСЃР»Р°РІР°" from customers c2
+where country = 'USA' order by "Р‘РѕСЂРёСЃР»Р°РІР°" desc, "Name" desc;
 
 select country, count (*) as cnt from customers c group by country order by cnt desc;
 select * from products p;
