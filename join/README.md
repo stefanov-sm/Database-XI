@@ -4,7 +4,7 @@
 > Probably the most important thing in the relational database domain  
 > (i.e. cooking) :relaxed:
 ```
-<table-expression> ::= <table-name> [[AS] <alias>]
+<table-expression> ::= <table-name> [[AS] <alias>] ;To be continued
 <table-expression> ::= <table-expression>
 [
  INNER |
