@@ -4,7 +4,7 @@
 > Probably the most important thing in the relational database domain  
 > (i.e. cooking) :relaxed:
 
-See what's there [on the board](https://github.com/stefanov-sm/Database-XI/blob/16b973102141a00327dd15aa70c4af163f09b04a/On-the-board/2024-10-01.sql)
+See what's there [on the board](../On-the-board/2024-10-01.sql)
 
 ```
 <table-expression> ::= <table-name> [[AS] <alias>] ;To be continued
