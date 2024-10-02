@@ -25,11 +25,13 @@ insert into about_joins.dish_recipe values (5,'таратор','Направет
 
 
 -- Данни за продукти и количества, bridge table recipe_ingredient 
-insert into about_joins.recipe_ingredient values(5,10,1);  -- краставица
-insert into about_joins.recipe_ingredient values(5,9,1);   -- кисело мляко
-insert into about_joins.recipe_ingredient values(5,3,0.25,'Внимавай да не прекалиш'); -- чесън
-insert into about_joins.recipe_ingredient values(5,8,30);  -- олио
-insert into about_joins.recipe_ingredient values(5,4,100); -- орехи 
+insert into about_joins.recipe_ingredient
+values
+ (5,10,1),  -- краставица
+ (5,9,1),   -- кисело мляко
+ (5,8,30),  -- олио
+ (5,4,100), -- орехи 
+ (5,3,0.25,'Внимавай да не прекалиш'); -- чесън
 
 
 -- Рецептата, с връзка "много към много" чрез bridge table recipe_ingredient
