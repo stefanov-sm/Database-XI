@@ -3,6 +3,9 @@
 > [!IMPORTANT]
 > Probably the most important thing in the relational database domain  
 > (i.e. cooking) :relaxed:
+
+See what's there [on the board](https://github.com/stefanov-sm/Database-XI/blob/16b973102141a00327dd15aa70c4af163f09b04a/On-the-board/2024-10-01.sql)
+
 ```
 <table-expression> ::= <table-name> [[AS] <alias>] ;To be continued
 <table-expression> ::= <table-expression>
@@ -16,6 +19,7 @@
 <table-expression>
 ON <join-condition>
 ```
+
 SQLite JOIN syntax diagram at [SQL As Understood By SQLite](https://devdoc.net/database/sqlite-3.0.7.2/lang_select.html)  
 
 ![join-operator](https://github.com/user-attachments/assets/1d283a35-15bd-46e5-8c46-d7ca8e1c9204)
