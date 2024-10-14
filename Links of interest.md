@@ -9,5 +9,7 @@
 - Are You Qualified To [Use Null in SQL?](https://agentm.github.io/project-m36/posts/2024-07-16-are-you-qualified-to-use-null.html)
 - Transform PostgreSQL into a [Columnar Database](https://stormatics.tech/semabs-planet-postgresql/transform-postgresql-into-a-columnar-database-using-citus) Using Citus
 - How to [Delete](https://sqlfordevs.com/delete-duplicate-rows) Duplicate Rows and much more on [SQLforDevs](https://sqlfordevs.com/tips)
+- [Convert JSON into Columns and Rows](https://www.crunchydata.com/blog/easily-convert-json-into-columns-and-rows-with-json_table) with [JSON_TABLE](https://www.postgresql.org/docs/current/functions-json.html#FUNCTIONS-SQLJSON-TABLE)
+- [SQL/JSON](https://www.depesz.com/2024/10/11/sql-json-is-here-kinda-waiting-for-pg-17/) is here
   
 ... and more to come 
