@@ -67,7 +67,7 @@ SELECT CASE
 	else 'green' 
 	END;
 
--- Simple CASE`
+-- Simple CASE
 SELECT CASE 3 
 	when 4 
 		then 'red' 
