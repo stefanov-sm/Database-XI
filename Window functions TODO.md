@@ -58,5 +58,5 @@ from t cross join p; -- all persons for each row of CTE t
 ## To do
 #### A simplified - yet realistic - bank account statement
 - What is the ballance per person now? (a result per person)
-- What has the ballance been for every person after every transaction of his? (a result per transaction, may filter by person_id)
-- an extra requirement - with a smile - present the integer part of transaction values in a separate column as roman numerals (ex. `47.39` becomes `XLVII`, `-19` becomes `sine XIX`)
+- What has the ballance been for every person after every transaction of his? (a result per transaction, may filter by `person_id`)
+- an extra requirement with a smile - _present_ the integer part of transaction values in a separate column as roman numerals (ex. `47.39` becomes `XLVII`, `-19` becomes `sine XIX`)
