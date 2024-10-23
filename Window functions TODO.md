@@ -32,5 +32,7 @@ create table transaction
 -- JSON column "misc" is a mimic or possible optional properties
 -- and not necessarily an example of proper data design
 ```
+![image](https://github.com/user-attachments/assets/ed2be3c8-8af4-432d-95ab-084f2b9824c4)
+
 - What is the ballance per person now? (a result per person)
 - What has the ballance been for every person after every transaction of his? (a result per transaction)
