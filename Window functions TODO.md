@@ -3,6 +3,8 @@
 > Before you proceed, read the reference [here](https://www.postgresql.org/docs/current/tutorial-window.html#TUTORIAL-WINDOW).  
 > Pay special attention to window frame definition [here](https://www.postgresql.org/docs/current/sql-expressions.html#SYNTAX-WINDOW-FUNCTIONS)  
 > and important built-in functions [here](https://www.postgresql.org/docs/current/functions-window.html#FUNCTIONS-WINDOW).
+>   
+> You may also have a look at `generate_series` [here](https://www.postgresql.org/docs/current/functions-srf.html#FUNCTIONS-SRF)
 
 There are 3 tables, DDL below
 ```sql
@@ -36,6 +38,25 @@ create table transaction
 );
 -- JSON column "misc" is a mimic or possible optional properties
 -- and not necessarily an example of proper data design
+
+-- Populate the tables
+
+insert into person (name) values ('Георги'), ('Петър'), ('Мария');
+insert into initial_ballance (person_id, ballance) values (1, 100), (2, 150), (3, 200);
+
+insert into transaction (person_id, transaction_date, value)
+with t as ( -- 100 random numbers b/w 0 and 1
+  select random() as r 
+  from generate_series(1, 100, 1)
+),
+p as ( -- list of person id-s
+  select id as pid from person
+)
+select 
+  pid,
+  '2020-01-01'::date +  (r * (current_date - '2020-01-01'))::integer, 
+  (r * 100 - 50)::numeric(10, 2)
+from t cross join p;
 ```
 ![image](https://github.com/user-attachments/assets/ed2be3c8-8af4-432d-95ab-084f2b9824c4)
 
