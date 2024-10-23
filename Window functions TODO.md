@@ -55,5 +55,7 @@ from t cross join p; -- all persons for each row of CTE t
 ```
 ![image](https://github.com/user-attachments/assets/ed2be3c8-8af4-432d-95ab-084f2b9824c4)
 
+## To do
+#### A simplified - yet realistic - bank account statement
 - What is the ballance per person now? (a result per person)
-- What has the ballance been for every person after every transaction of his? (a result per transaction)
+- What has the ballance been for every person after every transaction of his? (a result per transaction, may filter by person_id)
