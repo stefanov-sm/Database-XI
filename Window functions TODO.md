@@ -45,18 +45,13 @@ insert into person (name) values ('Георги'), ('Петър'), ('Мария'
 insert into initial_ballance (person_id, ballance) values (1, 100), (2, 150), (3, 200);
 
 insert into transaction (person_id, transaction_date, value)
-with t as ( -- 100 random numbers b/w 0 and 1
-  select random() as r 
-  from generate_series(1, 100, 1)
-),
-p as ( -- list of person id-s
-  select id as pid from person
-)
+with t as (select generate_series(1, 100, 1)), -- just 100 rows
+     p as (select id as pid from person)       -- list of person id-s
 select 
-  pid,
-  '2020-01-01'::date +  (r * (current_date - '2020-01-01'))::integer, 
-  (r * 100 - 50)::numeric(10, 2)
-from t cross join p;
+    pid, 
+    '2020-01-01'::date +  (random() * (current_date - '2020-01-01'))::integer, 
+    (random() * 100 - 50)::numeric(10, 2)
+from t cross join p; -- all persons for each row of CTE t
 ```
 ![image](https://github.com/user-attachments/assets/ed2be3c8-8af4-432d-95ab-084f2b9824c4)
 
