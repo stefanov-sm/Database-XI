@@ -1,6 +1,6 @@
 ## Window functions TODO
 > [!IMPORTANT]  
-> Before you start, read the reference [here](https://www.postgresql.org/docs/current/tutorial-window.html#TUTORIAL-WINDOW).  
+> Before you proceed, read the reference [here](https://www.postgresql.org/docs/current/tutorial-window.html#TUTORIAL-WINDOW).  
 > Pay special attention to window frame definition [here](https://www.postgresql.org/docs/current/sql-expressions.html#SYNTAX-WINDOW-FUNCTIONS)  
 > and important built-in functions [here](https://www.postgresql.org/docs/current/functions-window.html#FUNCTIONS-WINDOW).
 
