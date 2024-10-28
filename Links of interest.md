@@ -11,5 +11,6 @@
 - How to [Delete](https://sqlfordevs.com/delete-duplicate-rows) Duplicate Rows and much more on [SQLforDevs](https://sqlfordevs.com/tips)
 - [Convert JSON into Columns and Rows](https://www.crunchydata.com/blog/easily-convert-json-into-columns-and-rows-with-json_table) with [JSON_TABLE](https://www.postgresql.org/docs/current/functions-json.html#FUNCTIONS-SQLJSON-TABLE)
 - [SQL/JSON](https://www.depesz.com/2024/10/11/sql-json-is-here-kinda-waiting-for-pg-17/) is here
+- Oracle PL/SQL vs Postgres PL/pgSQL - [similar and yet different](https://stormatics.tech/blogs/transitioning-from-oracle-to-postgresql-pl-sql-vs-pl-pgsql)
   
 ... and more to come 
