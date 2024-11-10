@@ -46,6 +46,6 @@ with pg.connect(connectionstring) as conn:
     stmt.commit()
 ```
 
-## II. Items of special attention
+## III. Items of special attention
 - statement result format by [Row factories](https://www.psycopg.org/psycopg3/docs/advanced/rows.html)
 - [transaction management](https://www.psycopg.org/psycopg3/docs/basic/transactions.html)
