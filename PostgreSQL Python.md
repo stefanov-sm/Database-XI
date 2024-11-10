@@ -38,12 +38,12 @@ More in the [documentation](https://www.postgresql.org/docs/current/libpq-envars
 ```python
 stmt = conn.cursor()
 ```
-### An example
+### an example
 ```python
 with pg.connect(connectionstring) as conn:
   with conn.cursor() as stmt:
-  # stmt.execute and stmt.fetch* statements
-  stmt.commit()
+    # stmt.execute and stmt.fetch* statements
+    stmt.commit()
 ```
 
 ## II. Items of special attention
