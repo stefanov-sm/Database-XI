@@ -2,7 +2,7 @@
 ## I. Connection
 ### psycopg connection using a connection string  
 
-```python
+```Python
 import psycopg as pg
 
 # Literal connection string
@@ -16,12 +16,12 @@ conn = pg.connect(connectionstring)
 ```
 ### psycopg connection using separate arguments
 
-```python
+```Python
 conn = pg.connect(dbname='the_database', user='the_user', password='secret', host='the_host', port=5432)
 ```
 
 ### psycopg connection using environment variables
-```python
+```Python
 conn = pg.connect('')
 ```
 **Variables:**  
@@ -34,19 +34,47 @@ conn = pg.connect('')
   
 More in the [documentation](https://www.postgresql.org/docs/current/libpq-envars.html)
 
-## II. Statement, weirdly called *cursor* in Python
+## II. Statement, weirdly called [cursor](https://www.psycopg.org/psycopg3/docs/api/cursors.html#the-cursor-class) in Python
 
 ```python
 stmt = conn.cursor()
 ```
-### an example
-```python
+#### a good structure example
+```Python
 with pg.connect(connectionstring) as conn:
   with conn.cursor() as stmt:
     # stmt.execute and stmt.fetch* statements
-    stmt.commit()
+    conn.commit()
 ```
+#### step by step
+```Python
+import psycopg as pg
 
-## III. Items of special attention
-- statement result format by [Row factories](https://www.psycopg.org/psycopg3/docs/advanced/rows.html)
-- [transaction management](https://www.psycopg.org/psycopg3/docs/basic/transactions.html)
+# these shall come from a safe place
+conn_paramaters = ('practice', 'postgres', 'TheLongPassword', 'localhost', 5432)
+
+connectionstring = "dbname='%s' user='%s' password='%s' host='%s' port=%s" % conn_paramaters
+
+# this may come from a SQL module
+sql = 'select * from class_a.unit'
+
+conn = pg.connect(connectionstring)
+stmt = conn.cursor()
+stmt.execute(sql)
+
+res = stmt.fetchall()
+print (res)
+
+conn.commit()
+stmt.close()
+conn.close()
+```
+> [!NOTE]  
+> You may have a look at [this](https://github.com/stefanov-sm/sql-methods-in-python) example
+
+## III. *Must read*  
+
+> [!IMPORTANT]
+> [Passing parameters](https://www.psycopg.org/psycopg3/docs/basic/params.html) to SQL queries  
+> Statement result format by [Row factories](https://www.psycopg.org/psycopg3/docs/advanced/rows.html)  
+> [Transaction management](https://www.psycopg.org/psycopg3/docs/basic/transactions.html)
