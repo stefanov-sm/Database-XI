@@ -77,9 +77,10 @@ stmt.close()
 conn.close()
 ```
 > [!NOTE]  
-> You may have a look at [this](https://github.com/stefanov-sm/sql-methods-in-python) example
+> You may have a look at [this](https://github.com/stefanov-sm/sql-methods-in-python) example  
+> and the highly efficient PostgreSQL specific [copy](https://www.psycopg.org/psycopg3/docs/basic/copy.html)  
 
-## III. *Must read*  
+## III. _Must_ read  
 
 > [!IMPORTANT]
 > [Passing parameters](https://www.psycopg.org/psycopg3/docs/basic/params.html) to SQL queries  
