@@ -1,6 +1,7 @@
 create extension file_fdw;
 create server file_server foreign data wrapper file_fdw;
 
+-- Attach file eurofxref-hist.csv as a table
 create foreign table ecb_forex
 (
  "Date" date,
@@ -12,13 +13,12 @@ create foreign table ecb_forex
  MYR numeric, NZD numeric, PHP numeric, SGD numeric, THB numeric, ZAR numeric, dummy text
 )
 server file_server
-options
-(
+options (
  filename 'C:/foreign_data/eurofxref-hist.csv',
  format 'csv', delimiter ',', null 'N/A', header 'true'
 );
 
-select "Date", try 
-from ecb_forex 
-where try is not null
-order by "Date";
+-- Query data with SQL
+select "Date", TRY -- TRY stands for turkish lira
+from ecb_forex
+where TRY is not null order by "Date";
