@@ -12,7 +12,7 @@ insert into temporal.goods (goods_name,price) values
 ('краставици', 3.5),
 ('олио', 3.9),
 ('брашно', 2.5),
-('лук',1.3);
+('лук', 1.3);
 
 select * from temporal.goods;
 select price from temporal.goods where id = 4;
@@ -37,7 +37,7 @@ left outer join temporal.price_temporal as t
  -- the temporal dependancy follows  
  and current_date between 
  	valid_from and coalesce(valid_to, 'infinity')
- where g.id=4;
+ where g.id = 4;
 
 -- Cleanup
 DROP SCHEMA temporal CASCADE;
