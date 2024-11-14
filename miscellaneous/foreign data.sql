@@ -1,7 +1,8 @@
 create extension file_fdw;
 create server file_server foreign data wrapper file_fdw;
 
--- Attach file eurofxref-hist.csv as a table
+-- Attach file eurofxref-hist.csv (ECB exchange rate history) as a foreign table
+-- https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.zip
 create foreign table ecb_forex
 (
  "Date" date,
@@ -18,7 +19,8 @@ options (
  format 'csv', delimiter ',', null 'N/A', header 'true'
 );
 
--- Query data with SQL
-select "Date", TRY -- TRY stands for turkish lira
+-- Query data with plain SQL
+-- TRY stands for turkish lira
+select "Date", TRY
 from ecb_forex
 where TRY is not null order by "Date";
