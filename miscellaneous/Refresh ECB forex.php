@@ -2,7 +2,7 @@
 // ECB forex external table data update
 // Scheduled to run daily roughly at 02:00AM
 
-const ECB_FOREX_URL = 'https://www.ecb.europa.eu/stats/eurofxref /eurofxref-hist.zip',
+const ECB_FOREX_URL = 'https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.zip',
       FOREIGN_DATA_FOLDER = 'c:/foreign_data',
       FOREIGN_DATA_FILE = '/eurofxref-hist.zip';
 
