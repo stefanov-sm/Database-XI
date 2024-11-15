@@ -7,13 +7,16 @@ const ECB_FOREX_URL = 'https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.
       FOREIGN_DATA_FILE = '/eurofxref-hist.zip';
 
 $tempZipFile = getenv('temp').FOREIGN_DATA_FILE;
-try
-{
-  copy (ECB_FOREX_URL, $tempZipFile);
+try {
+  copy(ECB_FOREX_URL, $tempZipFile);
   $zipEngine = new ZipArchive();
   $zipEngine -> open($tempZipFile);
   $zipEngine -> extractTo(FOREIGN_DATA_FOLDER);
   $zipEngine -> close();
   unlink($tempZipFile);
 }
-catch ($ignored) {};
+catch (Exception|Error $err) {
+  file_put_contents(__DIR__.'/ECB.errorlog.txt',
+                    date('Y-m-d H:i:s - ').($err -> getMessage()).PHP_EOL, 
+                    FILE_APPEND);
+};
