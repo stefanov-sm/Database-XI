@@ -8,7 +8,8 @@ const ECB_FOREX_URL = 'https://www.ecb.europa.eu/stats/eurofxref /eurofxref-hist
 
 $tempZipFile = getenv('temp').FOREIGN_DATA_FILE;
 try {
-  if (!copy (ECB_FOREX_URL, $tempZipFile)) throw new Exception ('HTTP read failed');
+  if (!copy(ECB_FOREX_URL, $tempZipFile))
+      throw new Exception('HTTP read failed');
   $zipEngine = new ZipArchive();
   $zipEngine -> open($tempZipFile);
   $zipEngine -> extractTo(FOREIGN_DATA_FOLDER);
