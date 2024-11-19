@@ -47,3 +47,26 @@ cross join lateral
  where a.value <> b.value -- and a.column_name <> 'tablename'
 ) as lat
 where lv is not null;
+
+
+-- Minimalistic
+
+with t as
+(
+ select	id,
+    min(to_jsonb(discrepancies)::text)::jsonb fv, 
+    max(to_jsonb(discrepancies)::text)::jsonb lv
+ from discrepancies group by id
+)
+select t.id row_id, l.*
+from t, lateral
+(
+ select a.column_name, a.value value_a, b.value value_b
+ from jsonb_each_text(fv) a(column_name, value) 
+ join jsonb_each_text(lv) b(column_name, value)
+   on a.column_name = b.column_name
+ where a.value <> b.value
+) l
+-- place tablename on top of each row_id - group of records
+order by row_id, (column_name != 'tablename'), column_name;
+
