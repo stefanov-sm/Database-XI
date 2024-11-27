@@ -13,5 +13,6 @@
 - [SQL/JSON](https://www.depesz.com/2024/10/11/sql-json-is-here-kinda-waiting-for-pg-17/) is here
 - Oracle PL/SQL vs Postgres PL/pgSQL - [similar and yet different](https://stormatics.tech/blogs/transitioning-from-oracle-to-postgresql-pl-sql-vs-pl-pgsql)
 - Very good stuff on [character encodings](https://thebuild.com/blog/2024/10/27/speaking-in-tongues-postgresql-and-character-encodings/), [collations and locales](https://thebuild.com/blog/2024/10/25/postgresql-collations-1-gentlemen-this-is-a-football/) (5 minutes read)
+- SMS integration portal [API documentation](https://www.smsapi.bg/docs/#1-introduction)
   
 ... and more to come 
