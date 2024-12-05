@@ -4,20 +4,25 @@ create table public.iban_sizes (
  iban_size integer check (iban_size between 10 and 50),
  notes text 
  );
-insert into public.iban_sizes (notes, country_abbrev, iban_size) values
-('Албания','AL','28'),('Андора','AD','24'),('Австрия','AT','20'),('Азербайджан','AZ','28'),
-('Бахрейн','BH','22'),('Белгия','BE','16'),('Босна и Херцеговина','BA','20'),('България','BG','22'),
-('Хърватия','HR','21'),('Кипър','CY','28'),('Чехия','CZ','24'),('Дания','DK','18'),
-('Естония','EE','20'),('Финландия','FI','18'),('Франция','FR','27'),('Грузия','GE','22'),
-('Германия','DE','22'),('Гърция','GR','27'),('Унгария','HU','28'),('Исландия','IS','26'),
-('Ирландия','IE','22'),('Италия','IT','27'),('Казахстан','KZ','20'),('Косово','XK','20'),
-('Латвия','LV','21'),('Ливан','LB','28'),('Лихтенщайн','LI','21'),('Литва','LT','20'),
-('Люксембург','LU','20'),('Малта','MT','31'),('Монако','MC','27'),('Черна Гора','ME','22'),
-('Нидерландия','NL','18'),('Македония','MK','19'),('Норвегия','NO','15'),('Полша','PL','28'),
-('Португалия','PT','25'),('Румъния','RO','24'),('Сан Марино','SM','27'),('Сърбия','RS','22'),
-('Словакия','SK','24'),('Словения','SI','19'),('Испания','ES','24'),('Швеция','SE','24'),
-('Швейцария','CH','21'),('Турция','TR','26'),('Великобритания','GB','22');
-
+insert into public.iban_sizes (iban_size, country_abbrev, notes) values
+('28', 'AL', 'Albania'),('24', 'AD', 'Andorra'),('20', 'AT', 'Austria'),('28', 'AZ', 'Azerbaijan'),('22', 'BH', 'Bahrain'),
+('28', 'BY', 'Belarus'),('16', 'BE', 'Belgium'),('20', 'BA', 'Bosnia and Herzegovina'),('29', 'BR', 'Brazil'),('22', 'BG', 'Bulgaria'),
+('27', 'BI', 'Burundi'),('22', 'CR', 'Costa Rica'),('21', 'HR', 'Croatia'),('28', 'CY', 'Cyprus'),('24', 'CZ', 'Czech Republic'),
+('18', 'DK', 'Denmark'),('27', 'DJ', 'Djibouti'),('28', 'DO', 'Dominican Republic'),('23', 'TL', 'East Timor'),('29', 'EG', 'Egypt'),
+('28', 'SV', 'El Salvador'),('20', 'EE', 'Estonia'),('18', 'FK', 'Falkland Islands'),('18', 'FO', 'Faroe Islands'),('18', 'FI', 'Finland'),
+('27', 'FR', 'France'),('22', 'GE', 'Georgia'),('22', 'DE', 'Germany'),('23', 'GI', 'Gibraltar'),('27', 'GR', 'Greece'),
+('18', 'GL', 'Greenland'),('28', 'GT', 'Guatemala'),('28', 'HU', 'Hungary'),('26', 'IS', 'Iceland'),('23', 'IQ', 'Iraq'),
+('22', 'IE', 'Ireland'),('23', 'IL', 'Israel'),('27', 'IT', 'Italy'),('30', 'JO', 'Jordan'),('20', 'KZ', 'Kazakhstan'),
+('20', 'XK', 'Kosovo'),('30', 'KW', 'Kuwait'),('21', 'LV', 'Latvia'),('28', 'LB', 'Lebanon'),('25', 'LY', 'Libya'),
+('21', 'LI', 'Liechtenstein'),('20', 'LT', 'Lithuania'),('20', 'LU', 'Luxembourg'),('31', 'MT', 'Malta'),('27', 'MR', 'Mauritania'),
+('30', 'MU', 'Mauritius'),('27', 'MC', 'Monaco'),('24', 'MD', 'Moldova'),('20', 'MN', 'Mongolia'),('22', 'ME', 'Montenegro'),
+('18', 'NL', 'Netherlands'),('28', 'NI', 'Nicaragua'),('19', 'MK', 'North Macedonia'),('15', 'NO', 'Norway'),('23', 'OM', 'Oman'),
+('24', 'PK', 'Pakistan'),('29', 'PS', 'Palestinian territories'),('28', 'PL', 'Poland'),('25', 'PT', 'Portugal'),('29', 'QA', 'Qatar'),
+('24', 'RO', 'Romania'),('33', 'RU', 'Russia'),('32', 'LC', 'Saint Lucia'),('27', 'SM', 'San Marino'),('25', 'ST', 'Sao Tome and Principe'),
+('24', 'SA', 'Saudi Arabia'),('22', 'RS', 'Serbia'),('31', 'SC', 'Seychelles'),('24', 'SK', 'Slovakia'),('19', 'SI', 'Slovenia'),
+('23', 'SO', 'Somalia'),('24', 'ES', 'Spain'),('18', 'SD', 'Sudan'),('24', 'SE', 'Sweden'),('21', 'CH', 'Switzerland'),
+('24', 'TN', 'Tunisia'),('26', 'TR', 'Turkey'),('29', 'UA', 'Ukraine'),('23', 'AE', 'United Arab Emirates'),('22', 'GB', 'United Kingdom'),
+('22', 'VA', 'Vatican City'),('24', 'VG', 'Virgin Islands, British'),('30', 'YE', 'Yemen');
 select * from public.iban_sizes;
 
 -- Клас Б
