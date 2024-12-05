@@ -43,6 +43,8 @@ begin
 	for i in 1 .. array_length(iban_arr, 1) loop
 		if  not iban_arr[i] between '0' and '9' then
 			iban_arr[i] := (array_position(letters, iban_arr[i]) + 9)::text;
+                  -- or iban_arr[i] := (select o + 9 from unnest(letters) with ordinality as u(l, o) where l = iban_arr[i])::text;
+                  -- which is in fact an implementation of array_position
 		end if;
 	end loop;
 	arg_iban := array_to_string(iban_arr, '');
