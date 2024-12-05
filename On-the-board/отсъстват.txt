@@ -1,0 +1,68 @@
+-- Êכאס ֱ
+create or replace function public.iban_check (arg_iban text)
+returns boolean language plpgsql immutable as 
+$$
+declare 
+	country_id text;
+	iban_arr text[];
+	letters text[] := '{A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}';
+begin
+	arg_iban := regexp_replace(upper(arg_iban), '[^A-Z0-9]', '', 'g');
+	country_id := substr(arg_iban, 1, 2);
+	if not exists (
+					select from public.iban_sizes 
+					where country_abbrev = country_id
+					and length(arg_iban) = iban_size
+				  ) then 
+		return false;
+	end if;
+	arg_iban := substr(arg_iban, 5) || left(arg_iban, 4);
+	iban_arr := string_to_array(arg_iban, null);
+	for i in 1 .. array_length(iban_arr, 1) loop
+		if  not iban_arr[i] between '0' and '9' then
+			iban_arr[i] := (array_position(letters, iban_arr[i]) + 9)::text;
+		end if;
+	end loop;
+	arg_iban := array_to_string(iban_arr, '');
+	-- raise notice '%', arg_iban;
+	return (arg_iban::numeric % 97) = 1;
+end;
+$$;
+
+-- Êכאס ֲ
+create or replace function public.iban_valid(arg_iban text)
+returns boolean language plpgsql immutable as 
+$$
+declare 
+	letters text[] := '{A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}';
+	arr_iban text[];
+	i integer;
+	mod_result integer;
+begin 
+	arg_iban := upper(arg_iban);
+	arg_iban := regexp_replace(arg_iban, '[^A-Z0-9]', '', 'g');
+	if not exists (
+	select 1 from iban_sizes where country_abbrev = substr(arg_iban, 1, 2)
+	and length(arg_iban) = iban_size
+	) then 
+		return false;
+	end if;
+	arg_iban := substring(arg_iban from 5) || left(arg_iban, 4);
+	arr_iban := string_to_array(arg_iban, null);
+	for i in 1 .. array_length(arr_iban, 1) loop
+		if arr_iban[i] between 'A' and 'Z' then
+			arr_iban[i] := (array_position(letters, arr_iban[i]) + 9)::text;
+		end if;
+	end loop;
+	arg_iban = array_to_string(arr_iban, '');
+	mod_result := arg_iban :: numeric % 97;
+
+	raise notice '%', arg_iban;
+	return mod_result = 1;
+end;
+$$;
+
+select public.iban_valid('GB82 WEST 1234 5698 7654 32');
+
+-- Êכאס ְ
+-- Coming soon
