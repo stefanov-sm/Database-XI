@@ -1,4 +1,4 @@
---  Î‡Ò ¡
+-- –ö–ª–∞—Å –ë
 create or replace function public.iban_check (arg_iban text)
 returns boolean language plpgsql immutable as 
 $$
@@ -29,7 +29,7 @@ begin
 end;
 $$;
 
---  Î‡Ò ¬
+-- –ö–ª–∞—Å –í
 create or replace function public.iban_valid(arg_iban text)
 returns boolean language plpgsql immutable as 
 $$
@@ -64,5 +64,5 @@ $$;
 
 select public.iban_valid('GB82 WEST 1234 5698 7654 32');
 
---  Î‡Ò ¿
+-- –ö–ª–∞—Å –ê
 -- Coming soon
