@@ -1,3 +1,25 @@
+-- drop table if exists public.iban_sizes;
+create table public.iban_sizes (
+ country_abbrev text primary key,
+ iban_size integer check (iban_size between 10 and 50),
+ notes text 
+ );
+insert into public.iban_sizes (notes, country_abbrev, iban_size) values
+('Албания','AL','28'),('Андора','AD','24'),('Австрия','AT','20'),('Азербайджан','AZ','28'),
+('Бахрейн','BH','22'),('Белгия','BE','16'),('Босна и Херцеговина','BA','20'),('България','BG','22'),
+('Хърватия','HR','21'),('Кипър','CY','28'),('Чехия','CZ','24'),('Дания','DK','18'),
+('Естония','EE','20'),('Финландия','FI','18'),('Франция','FR','27'),('Грузия','GE','22'),
+('Германия','DE','22'),('Гърция','GR','27'),('Унгария','HU','28'),('Исландия','IS','26'),
+('Ирландия','IE','22'),('Италия','IT','27'),('Казахстан','KZ','20'),('Косово','XK','20'),
+('Латвия','LV','21'),('Ливан','LB','28'),('Лихтенщайн','LI','21'),('Литва','LT','20'),
+('Люксембург','LU','20'),('Малта','MT','31'),('Монако','MC','27'),('Черна Гора','ME','22'),
+('Нидерландия','NL','18'),('Македония','MK','19'),('Норвегия','NO','15'),('Полша','PL','28'),
+('Португалия','PT','25'),('Румъния','RO','24'),('Сан Марино','SM','27'),('Сърбия','RS','22'),
+('Словакия','SK','24'),('Словения','SI','19'),('Испания','ES','24'),('Швеция','SE','24'),
+('Швейцария','CH','21'),('Турция','TR','26'),('Великобритания','GB','22');
+
+select * from public.iban_sizes;
+
 -- Клас Б
 create or replace function public.iban_check (arg_iban text)
 returns boolean language plpgsql immutable as 
@@ -9,11 +31,11 @@ declare
 begin
 	arg_iban := regexp_replace(upper(arg_iban), '[^A-Z0-9]', '', 'g');
 	country_id := substr(arg_iban, 1, 2);
-	if not exists (
-					select from public.iban_sizes 
-					where country_abbrev = country_id
-					and length(arg_iban) = iban_size
-				  ) then 
+	if not exists  (
+			 select from public.iban_sizes 
+			 where country_abbrev = country_id
+			 and length(arg_iban) = iban_size
+			) then 
 		return false;
 	end if;
 	arg_iban := substr(arg_iban, 5) || left(arg_iban, 4);
