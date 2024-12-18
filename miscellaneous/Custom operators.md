@@ -1,7 +1,12 @@
+## User defined [operators](https://www.postgresql.org/docs/current/sql-createoperator.html) in PostgreSQL
+#### (Oracle is similar with a different [syntax](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/CREATE-OPERATOR.html))  
+.
 > [!CAUTION]
 > **Use custom operators with care. Compatibility & portability issues may arise**
 
-![MSSQL](https://github.com/user-attachments/assets/20c7a903-ef31-4cf8-86da-ff696485f0dc)
+.
+
+![MSSQL](https://github.com/user-attachments/assets/20c7a903-ef31-4cf8-86da-ff696485f0dc)  
 ### String concatenation MS-SQL Server style operator
 ```sql
 create or replace function text_concat (a text, b text)
