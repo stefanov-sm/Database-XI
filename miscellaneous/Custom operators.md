@@ -25,7 +25,7 @@ drop function text_concat;
 
 ```sql
 create or replace function rpar(r1 numeric, r2 numeric)
-returns numeric language sql immutable parallel safe as
+returns numeric language sql immutable strict parallel safe as
 $$
   select (r1 * r2)/(r1 + r2);
 $$;
