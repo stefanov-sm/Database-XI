@@ -14,5 +14,6 @@
 - Oracle PL/SQL vs Postgres PL/pgSQL - [similar and yet different](https://stormatics.tech/blogs/transitioning-from-oracle-to-postgresql-pl-sql-vs-pl-pgsql)
 - Very good stuff on [character encodings](https://thebuild.com/blog/2024/10/27/speaking-in-tongues-postgresql-and-character-encodings/), [collations and locales](https://thebuild.com/blog/2024/10/25/postgresql-collations-1-gentlemen-this-is-a-football/) (5 minutes read)
 - SMS integration portal [API documentation](https://www.smsapi.bg/docs/#1-introduction)
+- `odbc_fdw` and `file_textarray_fdw` for Windows, [PostgreSQL 17](https://www.postgresonline.com/journal/index.php?/archives/416-PostgreSQL-17-64-bit-for-Windows-FDWs.html) and [older versions](https://www.postgresonline.com/journal/index.php?/categories/85-odbc_fdw)
   
 ... and more to come 
