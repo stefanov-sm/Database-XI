@@ -16,5 +16,6 @@
 - SMS integration portal [API documentation](https://www.smsapi.bg/docs/#1-introduction)
 - Windows `odbc_fdw` and `file_textarray_fdw` foreign data wrappers for [PostgreSQL 17](https://www.postgresonline.com/journal/index.php?/archives/416-PostgreSQL-17-64-bit-for-Windows-FDWs.html) and [older versions](https://www.postgresonline.com/journal/index.php?/categories/85-odbc_fdw)
 - [PostgreSQL HTTP client](https://github.com/pramsey/pgsql-http) foreign data wrapper (very powerful, use carefully)
+- A [good playground](https://theory.github.io/sqljson/) to develop your [SQL/JSON Path Language](https://www.postgresql.org/docs/current/functions-json.html#FUNCTIONS-SQLJSON-PATH) expressions
   
 ... and more to come 
