@@ -18,7 +18,8 @@ begin
 	select res::text, coalesce(jsonb_typeof(res)::text, 'NULL')
 	from t;
 exception when others then
-  return query select SQLERRM, null;
+  return query select SQLERRM, null; 
+  -- may be further improved using GET STACKED DIAGNOSTICS
 end;
 $$;
 
