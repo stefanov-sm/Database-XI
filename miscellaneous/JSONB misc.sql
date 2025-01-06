@@ -14,6 +14,7 @@ immutable strict parallel safe language plpgsql as
 $$
 declare
   err_text text; err_details text; err_hint text; err_extra text;
+  LF constant text := e'\n';
 begin
   return query
   with t as (select jsonb_path_query(jtext::jsonb, jpath::jsonpath) res)
@@ -23,9 +24,8 @@ exception when others then
     err_text := MESSAGE_TEXT, err_details := PG_EXCEPTION_DETAIL, 
     err_hint := PG_EXCEPTION_HINT, err_extra := PG_EXCEPTION_CONTEXT;
   return query select '*** Error: '||
-    err_text||e'\n'||err_details||e'\n'||err_hint||e'\n'||split_part(err_extra, e'\n', 1), null;
+    err_text||LF||err_details||LF||err_hint||LF||split_part(err_extra, LF, 1), null;
 end;
 $$;
-
 select * from jsonpath_lint('{"key":100}', '$.key');
 --------------------------------------------------------------------------------
