@@ -12,14 +12,26 @@ create or replace function jsonpath_lint(jtext text, jpath text)
 returns table (result_value text, result_type text)
 immutable strict parallel safe language plpgsql as
 $$
+declare
+	err_text text;
+	err_details text;
+	err_hint text;
+	NEWLINE constant text := e'\n';
 begin
   return query
   with t as (select jsonb_path_query(jtext::jsonb, jpath::jsonpath) res)
 	select res::text, coalesce(jsonb_typeof(res)::text, 'NULL')
 	from t;
 exception when others then
-  return query select SQLERRM, null; 
-  -- may be further improved using GET STACKED DIAGNOSTICS
+  get stacked diagnostics
+    err_text := MESSAGE_TEXT,
+    err_details := PG_EXCEPTION_DETAIL,
+    err_hint := PG_EXCEPTION_HINT;	
+  return query select 
+    '*** Error: '||
+    err_text||NEWLINE||
+    err_details||NEWLINE||
+    err_hint, null;
 end;
 $$;
 
