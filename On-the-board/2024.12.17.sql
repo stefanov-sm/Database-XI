@@ -30,7 +30,7 @@ INSERT INTO actions (action_time, user_id) VALUES
 -- table-returning query
 select json_agg(to_json(t)) from (
 
-	-- the table-returning query here with no trainling semicolon
+	-- the table-returning query here with no trailing semicolon
 	select action_time, substr(random()::text,3,7) as action_rndm from actions where user_id = 2
 
 ) as t;
@@ -39,7 +39,7 @@ select json_agg(to_json(t)) from (
 -- scalar query
 select json_build_object('value', (
 
-	-- the scalar query here with no trainling semicolon
+	-- the scalar query here with no trailing semicolon
 
 	select max(action_time) from actions where user_id = 2
 
@@ -49,7 +49,7 @@ select json_build_object('value', (
 -- table-returning query in a CTE
 with t as (
 
-	-- the table-returning query here with no trainling semicolon
+	-- the table-returning query here with no trailing semicolon
 
 	select action_time, substr(random()::text,3,7) as action_rndm 
 	from actions 
