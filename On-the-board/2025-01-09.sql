@@ -31,3 +31,13 @@ begin
   return ret_val;
 end;
 $$;
+
+-- Data-modifying CTE. Very powerful and useful
+-- https://www.postgresql.org/docs/current/queries-with.html#QUERIES-WITH-MODIFYING
+with t as (
+	update temporal.goods
+	set goods_name = 'лук'
+	where goods_name ~* 'onion' -- whatever DML query
+	returning id -- or whatever list of expressions
+)
+select string_agg(id::text, ',') from t;
