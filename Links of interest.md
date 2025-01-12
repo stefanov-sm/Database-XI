@@ -17,6 +17,6 @@
 - Windows `odbc_fdw` and `file_textarray_fdw` foreign data wrappers for [PostgreSQL 17](https://www.postgresonline.com/journal/index.php?/archives/416-PostgreSQL-17-64-bit-for-Windows-FDWs.html) and [older versions](https://www.postgresonline.com/journal/index.php?/categories/85-odbc_fdw)
 - [PostgreSQL HTTP client](https://github.com/pramsey/pgsql-http) extension (very powerful, use carefully). Read `pghttp_README.txt` if necessary.
 - A [good playground](https://theory.github.io/sqljson/) to develop your [SQL/JSON Path Language](https://www.postgresql.org/docs/current/functions-json.html#FUNCTIONS-SQLJSON-PATH) expressions
-- A very good and useful example of [slow asynchronous processing](https://www.crunchydata.com/blog/running-an-async-web-query-queue-with-procedures-and-pg_cron) using the [http extension](https://github.com/pramsey/pgsql-http). No long transactions. Worth to be used as a pattern.
+- A fine example of [slow asynchronous processing](https://www.crunchydata.com/blog/running-an-async-web-query-queue-with-procedures-and-pg_cron) using the [http extension](https://github.com/pramsey/pgsql-http). No long transactions. Worth to be used as a pattern.
   
 ... and more to come 
