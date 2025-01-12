@@ -15,7 +15,7 @@
 - Very good stuff on [character encodings](https://thebuild.com/blog/2024/10/27/speaking-in-tongues-postgresql-and-character-encodings/), [collations and locales](https://thebuild.com/blog/2024/10/25/postgresql-collations-1-gentlemen-this-is-a-football/) (5 minutes read)
 - SMS integration portal [API documentation](https://www.smsapi.bg/docs/#1-introduction)
 - Windows `odbc_fdw` and `file_textarray_fdw` foreign data wrappers for [PostgreSQL 17](https://www.postgresonline.com/journal/index.php?/archives/416-PostgreSQL-17-64-bit-for-Windows-FDWs.html) and [older versions](https://www.postgresonline.com/journal/index.php?/categories/85-odbc_fdw)
-- [PostgreSQL HTTP client](https://github.com/pramsey/pgsql-http) foreign data wrapper (very powerful, use carefully)
+- [PostgreSQL HTTP client](https://github.com/pramsey/pgsql-http) extension (very powerful, use carefully). Read `pghttp_README.txt` if necessary.
 - A [good playground](https://theory.github.io/sqljson/) to develop your [SQL/JSON Path Language](https://www.postgresql.org/docs/current/functions-json.html#FUNCTIONS-SQLJSON-PATH) expressions
 - A ***very good*** (and useful too) example of [slow asynchronous processing using the http extension](https://www.crunchydata.com/blog/running-an-async-web-query-queue-with-procedures-and-pg_cron) with no long transactions. Worth to be used as a pattern.
   
