@@ -49,3 +49,34 @@ select 12 || 10;
 drop operator || (numeric, numeric);
 drop function rpar;
 ```
+### JSONB scalar to text unary prefix operator
+> [!NOTE]
+> **Unary suffix operators are not supported**
+```sql
+create or replace function jsonb_text(j jsonb)
+returns text immutable strict language sql as
+$$
+  select j #>> '{}'
+$$;
+
+create operator >> (rightarg = jsonb, function = jsonb_text);
+
+-- Cleanup
+
+drop operator >> (none, jsonb); -- Note "none" as the type of the missing leftarg
+drop function jsonb_text;
+```
+#### Demo
+```sql
+with t(j) as (
+values ('{"tx":"A text", "nested":{"x":1, "y": "one"}}'::jsonb),
+       ('{"tx":"B text", "nested":{"x":2, "y": "two"}}'::jsonb)
+)
+select >>j['tx'] as txt, >>j['nested']['x'] as x, >>j['nested']['y'] as y from t;
+```
+
+|txt   |x|y  |
+|------|-|---|
+|A text|1|one|
+|B text|2|two|
+
