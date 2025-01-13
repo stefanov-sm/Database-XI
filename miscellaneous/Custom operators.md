@@ -68,6 +68,7 @@ drop function jsonb_text;
 ```
 #### Demo
 ```sql
+with t(j) as (
 values ('{"tx":"A text", "nested":{"x":1, "y": "one \"way\""}}'::jsonb),
        ('{"tx":"B text", "nested":{"x":2, "y": "two \"times\""}}'::jsonb)
 )
