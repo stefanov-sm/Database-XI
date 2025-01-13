@@ -35,3 +35,4 @@ with t(v) as (
 )
 select rms(v) from t;
 ```
+Result 20.366639
