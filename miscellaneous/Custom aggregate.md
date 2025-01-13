@@ -1,3 +1,8 @@
+### Custom aggregate function - [rms](https://en.wikipedia.org/wiki/Root_mean_square) 
+<img src=https://github.com/user-attachments/assets/bdd97929-5e23-43fc-93b1-a0fe42b15fcd width=250>
+
+
+```sql
 create type rms_state_t as (cnt integer, accumulator numeric);
 
 create or replace function rms_state_f(rms_state rms_state_t, rv numeric)
@@ -22,9 +27,11 @@ create or replace aggregate rms(numeric)
  SFUNC = rms_state_f,
  FINALFUNC = rms_final_f
 );
-
+```
+#### Demo
+```sql
 with t(v) as (
  values (10),(2),(3),(44),(5)
 )
-select rms(v) from t
--- where v > 100;
+select rms(v) from t;
+```
