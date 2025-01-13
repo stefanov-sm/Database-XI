@@ -68,15 +68,15 @@ drop function jsonb_text;
 ```
 #### Demo
 ```sql
-with t(j) as (
-values ('{"tx":"A text", "nested":{"x":1, "y": "one"}}'::jsonb),
-       ('{"tx":"B text", "nested":{"x":2, "y": "two"}}'::jsonb)
+values ('{"tx":"A text", "nested":{"x":1, "y": "one \"way\""}}'::jsonb),
+       ('{"tx":"B text", "nested":{"x":2, "y": "two \"times\""}}'::jsonb)
 )
-select >>j['tx'] as txt, >>j['nested']['x'] as x, >>j['nested']['y'] as y from t;
+select
+    j['tx'] as tx_as_json,
+  >>j['tx'] as tx_as_text, 
+    j['nested']['x'] as x_as_json,
+    j['nested']['y'] as y_as_json,
+  >>j['nested']['y'] as y_as_text
+from t;
 ```
-
-|txt   |x|y  |
-|------|-|---|
-|A text|1|one|
-|B text|2|two|
-
+![image](https://github.com/user-attachments/assets/8b76c368-1c82-4abb-a932-9b5572c5e630)
