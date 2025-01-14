@@ -1,6 +1,8 @@
-### Custom aggregate function - [rms](https://en.wikipedia.org/wiki/Root_mean_square) 
+### Custom aggregate function - [rms](https://en.wikipedia.org/wiki/Root_mean_square) as an illustration 
+> [!CAUTION]
+> **Use custom aggregates with care. Compatibility & portability issues may arise**  
+> **Only available in PostgreSQL and Oracle**
 <img src=https://github.com/user-attachments/assets/bdd97929-5e23-43fc-93b1-a0fe42b15fcd width=250>
-
 
 ```sql
 create type rms_state_t as (cnt integer, accumulator numeric);
