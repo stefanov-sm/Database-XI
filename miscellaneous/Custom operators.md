@@ -80,4 +80,4 @@ select
   >>j['nested']['y'] as y_as_text
 from t;
 ```
-![image](https://github.com/user-attachments/assets/8b76c368-1c82-4abb-a932-9b5572c5e630)
+<img src=https://github.com/user-attachments/assets/8b76c368-1c82-4abb-a932-9b5572c5e630 width=550>
