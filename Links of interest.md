@@ -18,5 +18,6 @@
 - [PostgreSQL HTTP client](https://github.com/pramsey/pgsql-http) extension (very powerful, use carefully). Read `pghttp_README.txt` if necessary.
 - A [good playground](https://theory.github.io/sqljson/) to develop your [SQL/JSON Path Language](https://www.postgresql.org/docs/current/functions-json.html#FUNCTIONS-SQLJSON-PATH) expressions
 - A fine example of [slow asynchronous processing](https://www.crunchydata.com/blog/running-an-async-web-query-queue-with-procedures-and-pg_cron) using the [http extension](https://github.com/pramsey/pgsql-http). No long transactions. Worth to be used as a pattern.
+- GeeksForGeeks [top-sql-databases-to-learn](https://www.geeksforgeeks.org/top-sql-databases-to-learn/). Just note how many times _PostgreSQL_ appears in the article.
   
 ... and more to come 
