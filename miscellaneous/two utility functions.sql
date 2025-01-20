@@ -51,7 +51,8 @@ returns table (
      from information_schema.columns as c
      where t.table_name = c.table_name 
        and t.table_schema = c.table_schema
-    ) from information_schema.tables as t
+    ) 
+ from information_schema.tables as t
  where table_name ~* partial_name
    and table_schema not in ('information_schema', 'pg_catalog')
  order by table_name, table_schema;
