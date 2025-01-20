@@ -1,3 +1,6 @@
+-- Both functions use a correlated scalar subquery
+--------------------------------------------------
+
 -- drop function if exists find_routine;
 create or replace function find_routine (partial_name text)
 returns table (
