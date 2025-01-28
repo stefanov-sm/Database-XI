@@ -2,7 +2,7 @@
 
 > [!NOTE]
 > Dear young colleagues,  
-> I will be placing course-related materilas in this repository.  
+> I will be placing course-related materials in this repository.  
 > S. Stefanov  
 
 
