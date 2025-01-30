@@ -28,3 +28,8 @@ VALUES
 ('2025-01-30 14:00:00', 0.0,  26, 950, 14),
 ('2025-01-30 22:00:00', 2.1,  24, 500, 10);
 
+create or replace function pg_temp.randomstring(nchars integer)
+returns text language sql as
+$$
+ select lpad((random() * (10^nchars))::integer::text, nchars, '0');
+$$;
