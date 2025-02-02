@@ -32,11 +32,10 @@ values
 insert into org_chart(id, full_name, manager_id)
 with t as (
 select 
-	('{301,302,303,311,312,321,322,323,331,332,333,341}'::integer[])[(random()*97)::integer % 11 + 1] as v 
-	from generate_series (1, 150, 1)
+	('{301,302,303,311,312,321,322,323,331,332,333,341}'::integer[])[(random()*97)::integer % 11 + 1] as v,
+	row_number() over () as rn
+	from generate_series (1, 150)
 )
-select 1000 + row_number() over (), 'EMPLOYEE.'||(2000 + row_number() over ())::text, v from t;
+select 1000 + rn, 'EMPLOYEE.'||(2000 + rn)::text, v from t;
 
 -- select * from org_chart;
-
-
