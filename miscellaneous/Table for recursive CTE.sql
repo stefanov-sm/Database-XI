@@ -30,11 +30,12 @@ values
 (341, 'MMD01_MM341', 204);	-- Manager of marketing department 01, reports to CMO
 
 insert into org_chart(id, full_name, manager_id)
-with t as (
-select 
-	('{301,302,303,311,312,321,322,323,331,332,333,341}'::integer[])[(random()*97)::integer % 11 + 1] as v,
-	row_number() over () as rn
-	from generate_series (1, 150)
+with t as
+(
+ select 
+   ('{301,302,303,311,312,321,322,323,331,332,333,341}'::integer[])[(random()*97)::integer % 11 + 1] as v,
+   rn
+ from generate_series(1, 150) as t(rn)
 )
 select 1000 + rn, 'EMPLOYEE.'||(2000 + rn)::text, v from t;
 
