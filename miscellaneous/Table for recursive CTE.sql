@@ -40,3 +40,27 @@ with t as
 select 1000 + rn, 'EMPLOYEE.'||(2000 + rn)::text, v from t;
 
 -- select * from org_chart;
+
+
+
+-- So here we go. Who works for $MANAGER_ID (incl. himself)?
+with RECURSIVE t as 
+(
+ select * from org_chart where id = $MANAGER_ID
+ UNION ALL 
+ select org_chart.* from t, org_chart 
+  -- the magic happens here 
+  where org_chart.manager_id = t.id 
+)
+select * from t;
+
+-- or basically the same with JOIN
+with RECURSIVE t as 
+(
+ select * from org_chart where id = $MANAGER_ID
+ UNION ALL 
+ select org_chart.* 
+ from org_chart inner join t on org_chart.manager_id = t.id 
+)
+select * from t;
+
