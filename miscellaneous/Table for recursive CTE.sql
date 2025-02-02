@@ -37,6 +37,6 @@ select
 )
 select 1000 + row_number() over (), 'EMPLOYEE.'||(2000 + row_number() over ())::text, v from t;
 
-select * from org_chart;
+-- select * from org_chart;
 
 
