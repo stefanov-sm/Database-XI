@@ -14,7 +14,7 @@ def query_rettype(connectionstring, query):
         stmt.execute(f'SELECT * from ({query}) as t limit 0')
         retval = {
           'status': True,
-          'value': [{'name':x.name, 'type_code':x.type_code, 'type':x._type_display()} for x in stmt.description]
+          'value': [{'name':x.name, 'type_code':x.type_code} for x in stmt.description]
          }
   except Exception as err:
     retval = {'status': False, 'value': str(err)}
