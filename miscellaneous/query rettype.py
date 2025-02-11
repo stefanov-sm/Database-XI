@@ -1,11 +1,12 @@
 # ----------------------------------------------------------
 # Resolve SQL query return type for type-safety use
-# PostgreSQL flavour. May differ a bit for other RDBMS
+# PostgreSQL flavour. May differ for other RDBMS
 # S.Stefanov, Nov 2024
 # ----------------------------------------------------------
+
 import json
 import psycopg
-# ----------------------------------------------------------
+
 def query_rettype(connectionstring, query):
   retval = {}
   try:
@@ -20,11 +21,20 @@ def query_rettype(connectionstring, query):
     retval = {'status': False, 'value': str(err)}
   return json.dumps(retval, indent = 2)
 
-# ----------------------------------------------------------
 # Unit test
 # ----------------------------------------------------------
-# CONNECTIONSTRING = 'host=localhost port=5432 dbname=postgres user=phpUser password=Baba123Meca'
+# CONNECTIONSTRING = 'host=localhost port=5432 dbname=postgres user=postgres password=TheLongPassword'
 # sql = 'select * from tests.the_table'
 # print (query_rettype(CONNECTIONSTRING, sql))
-# sql = 'select * Тук гръмни from tests.the_table'
+# sql = 'select bang now! * from tests.the_table'
 # print (query_rettype(CONNECTIONSTRING, sql))
+
+# Get type name by type_code
+# ----------------------------------------------------------
+# select 
+#   oid as type_code,
+#   typname as type_name,
+#   typlen as type_length
+# from pg_catalog.pg_type 
+# where oid = :type_code;
+
