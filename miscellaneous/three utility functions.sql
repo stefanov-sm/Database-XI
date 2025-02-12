@@ -59,6 +59,7 @@ returns table (
 $function$ language sql;
 
 --------------------------------------------------
+-- Use pgcrypto extension functions to validate the JWT signature (pos. 3)
 
 create or replace function decode_jwt(jwt text)
 returns table (pos integer, contents text) language sql immutable as
