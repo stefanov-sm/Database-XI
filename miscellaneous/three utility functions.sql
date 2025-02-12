@@ -1,4 +1,4 @@
--- Both functions use a correlated scalar subquery
+-- find_* unctions use a correlated scalar subquery
 --------------------------------------------------
 
 -- drop function if exists find_routine;
@@ -57,3 +57,22 @@ returns table (
    and table_schema not in ('information_schema', 'pg_catalog')
  order by table_name, table_schema;
 $function$ language sql;
+
+--------------------------------------------------
+
+create or replace function decode_jwt(jwt text)
+returns table (pos integer, contents text) language sql immutable as
+$$
+with parts as (
+  select * from regexp_split_to_table(jwt, '\.') with ordinality as t(x, pos)
+)
+select pos,
+  case when pos = 3 then x
+  else convert_from(decode(rpad(translate(x, '-_', '+/'), 4*((length(x)+3)/4), '='), 'base64'), 'utf-8')
+  end
+from parts order by pos;
+$$;
+
+-- Unit test -------------------------------------
+
+select * from decode_jwt('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c');
