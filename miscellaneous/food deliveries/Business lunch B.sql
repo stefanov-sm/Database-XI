@@ -34,9 +34,19 @@ values (0,10, 5),
 
 with recursive cooking as 
 (
-	select * from product
-	where id = 11
-	union all
+	select *, 2::numeric as "quantity" from product
+	where id = 12
+	union ALL
+	
+	select p.*, c.quantity * pb.quantity from product p, product_bridge pb
+		join cooking c on c.id = pb.part_of_id
+		where p.id = pb.product_id
+		
 --	select add recursive part
 )
 
+select * FROM cooking;
+
+insert into product(id, is_primary, name)
+values (3, true, 'cheese'),
+(13, false, 'cheesy pork')
