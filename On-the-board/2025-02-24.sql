@@ -31,9 +31,9 @@ select * from (select 'try' as currency, "Date", try from ecb_forex order by try
 
 -- Min and max rating of the turkish lira and swiss frank using window functions
 select	first_value("Date") over (order by try), first_value(try) over (order by try),
-		first_value("Date") over (order by try desc nulls last), first_value(try) over (order by try desc nulls last),
-		first_value("Date") over (order by chf), first_value(chf) over (order by chf),
-		first_value("Date") over (order by chf desc nulls last), first_value(chf) over (order by chf desc nulls last)
+	first_value("Date") over (order by try desc nulls last), first_value(try) over (order by try desc nulls last),
+	first_value("Date") over (order by chf), first_value(chf) over (order by chf),
+	first_value("Date") over (order by chf desc nulls last), first_value(chf) over (order by chf desc nulls last)
 from ecb_forex limit 1;
 
 -- Unpivot the table into a "thin" one (currency text, currency_date date, value numeric)
@@ -41,22 +41,19 @@ create or replace function forex_long()
 returns table (currency text, currency_date date, value numeric) language plpgsql stable as
 $$
 declare
-	currency_list text[];
-	jsonstruct json;
-	currency text;
-	DYNSQL_TEMPLATE constant text := 'SELECT %1$L, "Date", %1$s FROM ecb_forex';
+  currency_list text[];
+  jsonstruct json;
+  currency text;
+  DYNSQL_TEMPLATE constant text := 'SELECT %1$L, "Date", %1$s FROM ecb_forex';
 begin
   -- extract the list of columns (reflection-like operation using JSON)
   jsonstruct := (select to_json(ef) from ecb_forex ef limit 1);
-	currency_list := (
-                    select array_agg(j) from json_object_keys(jsonstruct) as j 
-                    where j not in ('Date', 'dummy')
-                   );
+  select array_agg(j) into currency_list from json_object_keys(jsonstruct) as j where j not in ('Date', 'dummy');
+
   -- extract data per currency using dynamic SQL
   foreach currency in array currency_list loop
-	  return query 
-		  execute format(DYNSQL_TEMPLATE, currency) using currency;
-	end loop;
+    return query execute format(DYNSQL_TEMPLATE, currency) using currency;
+  end loop;
 end;
 $$;
 
