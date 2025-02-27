@@ -1,6 +1,5 @@
 -- forex_long() version w/o the use of JSON reflection
 -- using the system catalog and an implicit cursor loop
-
 create or replace function forex_long()
 returns table (currency text, currency_date date, value numeric) language plpgsql stable as
 $$
@@ -8,15 +7,15 @@ declare
 	currency text;
 	DYNSQL_TEMPLATE constant text := 'SELECT %1$L, "Date", %1$s FROM ecb_forex';
 begin
-	for currency in 
-      select column_name from information_schema."columns" c 
-      where table_schema = 'public' 
-        and table_name = 'ecb_forex' 
-        and c.column_name not in ('Date', 'dummy')
+  for currency in 
+    select column_name from information_schema."columns" c 
+    where table_schema = 'public' 
+      and table_name = 'ecb_forex' 
+      and c.column_name not in ('Date', 'dummy')
   loop 
-		return query 
-			execute format(DYNSQL_TEMPLATE, currency) using currency;
-	end loop;
+    return query 
+      execute format(DYNSQL_TEMPLATE, currency) using currency;
+  end loop;
 end;
 $$;
 
@@ -43,8 +42,9 @@ declare
   row_array text[];
   columns_list text[] := (select array_agg(column_name)
                           from information_schema.columns 
-                          where table_name  = 'ecb_forex' and table_schema = 'public'
-                          and column_name not in ('Date', 'dummy'));
+                          where table_name  = 'ecb_forex'
+	                    and table_schema = 'public'
+                            and column_name not in ('Date', 'dummy'));
 begin
   for r in select rec from ecb_forexd loop
     row_array := string_to_array(r, ',');
