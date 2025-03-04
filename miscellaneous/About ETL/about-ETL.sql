@@ -49,7 +49,7 @@ $$
 $$;
 
 -- Unit test
-select fw_regexp('1,7,12,15,11,32,21');
+select fw_regexp('1, 7, 12, 15, 11, 32, 21');
 
 -- drop function if exists fw_array;
 --------------------------------------------------------------------------------
@@ -61,7 +61,7 @@ $$;
 
 
 /* Two more things to be defined:
- - the fields' start offsets, i.e. 1,7,12,15,11,32,21 in this example,
+ - the fields' start offsets, i.e. '1, 7, 12, 15, 11, 32, 21' in this example,
    an easy thing to do with a text editor
  - the column names and data types
 */
@@ -73,7 +73,7 @@ select  arr[1]::numeric as apple, arr[2] as pear,   arr[3] as peach,
         arr[7] as cherry 
 from
 (
- select fw_array(fl, fw_regexp('1,7,12,15,11,32,21')) as arr
+ select fw_array(fl, fw_regexp('1, 7, 12, 15, 11, 32, 21')) as arr
  from fw_ftbl
 ) as t
 where not arr[7] ~* 'друг';
