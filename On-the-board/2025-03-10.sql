@@ -3,6 +3,7 @@ returns boolean immutable language plpgsql as
 $$ 
   begin
     execute format('select %L :: %s', t, taret_t);
+    -- or 'SELECT cast(%L as %s)' in standard SQL
     return true;
   exception when others then 
     return false;
