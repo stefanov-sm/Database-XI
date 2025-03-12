@@ -20,5 +20,6 @@
 - A fine example of [slow asynchronous processing](https://www.crunchydata.com/blog/running-an-async-web-query-queue-with-procedures-and-pg_cron) using the [http extension](https://github.com/pramsey/pgsql-http). No long transactions. Worth to be used as a pattern.
 - GeeksForGeeks [top-sql-databases-to-learn](https://www.geeksforgeeks.org/top-sql-databases-to-learn/). Just note how many times _PostgreSQL_ appears in the article.
 - Windows binaries of [FDW](https://www.postgresql.org/docs/current/ddl-foreign-data.html)s & extensions [here](https://www.postgresonline.com/winextensions.php) and [here](https://www.postgresonline.com/journal/index.php?/categories/47-postgresql-versions)
+- On [Listen/Notify](https://www.postgresql.org/docs/current/sql-notify.html) and [Python](https://stackoverflow.com/questions/69246880/notifications-in-postgresql-with-pythonpsycopg2-does-not-work)
   
 ... and more to come 
