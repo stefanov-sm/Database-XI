@@ -6,18 +6,12 @@ create table tests.notifier
 
 create or replace function tests.notifier_tf() returns trigger language plpgsql as
 $$
-declare
-  channel_name text;
-  message_payload text;
 begin
   if new.v > 1000 then
-    CHANNEL_NAME := coalesce(TG_ARGV[0], 'general');
-    message_payload := to_json(new);
-    perform pg_notify(channel_name, message_payload);
+    perform pg_notify(coalesce(TG_ARGV[0], 'general'), to_json(new)::text);
   end if;
   return null;
 end;
-
 $$;
 
 create trigger notifier_t after insert
