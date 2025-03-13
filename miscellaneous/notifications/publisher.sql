@@ -7,7 +7,7 @@ create table tests.notifier
 create or replace function tests.notifier_tf() returns trigger language plpgsql as
 $$
 begin
-  if new.v > 1000 then
+  if new.v >= 1000 then
     perform pg_notify(coalesce(TG_ARGV[0], 'general'), to_json(new)::text);
   end if;
   return null;
