@@ -4,8 +4,7 @@ if (PHP_SAPI == 'cli' && $argc == 2 && preg_match('/^\w+$/', $argv[1])) {
   $conn -> exec("LISTEN {$argv[1]}; COMMIT");
   echo "Listening channel {$argv[1]} ...".PHP_EOL;
   while(true)
-    if ($res = $conn -> pgsqlGetNotify(PDO::FETCH_ASSOC, 500))
-    {
+    if ($res = $conn -> pgsqlGetNotify(PDO::FETCH_ASSOC, 500)) {
       $msg_data = json_decode($res['payload']);
       if ($msg_data -> v < 1000) continue;
 
