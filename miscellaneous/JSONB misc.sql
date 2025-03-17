@@ -29,10 +29,13 @@ exception when others then
     null;
 end;
 $$;
--- unit test
+-- unit test, <pre> HTML output
 --------------------------------------------------------------------------------
-select * from jsonpath_lint(
-  '{"key":[11,12,13,14,15], "value":{"current":false}}', 
+select '<pre>'
+       || string_agg(concat_ws(' ', r.result_value, '('||r.result_type||')'), e'\n')
+       || '</pre>'
+from jsonpath_lint(
+  '{"key":[11,12,13,14,15], "value":{"current":false}}',
   '$.value.current'
- );
+) as r;
 --------------------------------------------------------------------------------
