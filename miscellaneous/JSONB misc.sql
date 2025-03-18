@@ -4,12 +4,14 @@ returns text immutable strict language sql as
 $$
   select j #>> '{}'
 $$;
--- unit test
+
 --------------------------------------------------------------------------------
+-- unit test
 select ('{"key":"X100"}'::jsonb)['key'],
        jsonb_text(('{"key":"X100"}'::jsonb)['key']);
---------------------------------------------------------------------------------
 
+
+--------------------------------------------------------------------------------
 create or replace function jsonpath_lint(jtext text, jpath text)
 returns table (result_value text, result_type text) immutable language plpgsql as
 $$
@@ -29,13 +31,17 @@ exception when others then
     null;
 end;
 $$;
+
+--------------------------------------------------------------------------------
+create or replace function jsonpath_lint_html(text, text)
+returns text language sql immutable as
+$$
+select '<pre>'||
+  string_agg(concat_ws(' ', r.result_value, '('||r.result_type||')'), e'\n')||
+  '</pre>' 
+from jsonpath_lint($1, $2) as r
+$$;
+
+--------------------------------------------------------------------------------
 -- unit test, <pre> HTML output
---------------------------------------------------------------------------------
-select '<pre>'
-       || string_agg(concat_ws(' ', r.result_value, '('||r.result_type||')'), e'\n')
-       || '</pre>'
-from jsonpath_lint(
-  '{"key":[11,12,13,14,15], "value":{"current":false}}',
-  '$.value.current'
-) as r;
---------------------------------------------------------------------------------
+select jsonpath_lint_html('{"key":[11,12,13,14,15], "value":{"current":false}}', '$.value.current');
