@@ -78,3 +78,6 @@ PUBLICATION tues_pub;
 
 select * from rep.r_table order by id;
 ```
+### Last but not least  
+> [!IMPORTANT]    
+> See also [REPLICA IDENTITY](https://www.postgresql.org/docs/current/sql-altertable.html#SQL-ALTERTABLE-REPLICA-IDENTITY) 
