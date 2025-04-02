@@ -21,5 +21,6 @@
 - GeeksForGeeks [top-sql-databases-to-learn](https://www.geeksforgeeks.org/top-sql-databases-to-learn/). Just note how many times _PostgreSQL_ appears in the article.
 - Windows binaries of [FDW](https://www.postgresql.org/docs/current/ddl-foreign-data.html)s & extensions [here](https://www.postgresonline.com/winextensions.php) and [here](https://www.postgresonline.com/journal/index.php?/categories/47-postgresql-versions)
 - On [Listen/Notify](https://www.postgresql.org/docs/current/sql-notify.html) and [Python](https://stackoverflow.com/questions/69246880/notifications-in-postgresql-with-pythonpsycopg2-does-not-work)
+- Good read and comments on [Life Altering Postgresql Patterns](https://mccue.dev/pages/3-11-25-life-altering-postgresql-patterns)
   
 ... and more to come 
