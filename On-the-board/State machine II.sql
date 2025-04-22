@@ -1,19 +1,20 @@
+-- drop table if exists state;
 create table state (
 	id serial primary key,
 	state_name text not null,
 	details jsonb not null default '{}'
 );
 
-drop table if exists state;
 
+-- drop table if exists signal;
 create table signal (
 	id serial primary key,
 	signal_name text not null,
 	details jsonb not null default '{}'
 );
 
-drop table if exists signals;
 
+-- drop table if exists transition;
 create table transition (
 	signal_id integer not null references signal(id),
 	in_state_id integer not null references state(id),
@@ -22,8 +23,8 @@ create table transition (
 	details jsonb not null default '{}'
 );
 
-drop table if exists transitions;
 
+-- drop table if exists sm_unit;
 create table sm_unit (
 id serial primary key,
 unit_name text not null,
@@ -37,13 +38,14 @@ insert into signal(signal_name) values ('customer call'),('assign'),('dispatch')
 ('arrive'),('parts missing'),('parts picked ok'),('parts picked failed'),
 ('finished work ok'),('finished work failed'),('customer notification');
 
-insert into state (state_name)values ('neutral');
-insert into state (state_name)values ('parts missing');
-insert into signal (signal_name)values ('time interval');
+insert into state (state_name) values ('neutral');
+insert into state (state_name) values ('parts missing');
+insert into signal (signal_name) values ('time interval');
+
 select * from state;
 
 insert into transition (signal_id,in_state_id,out_state_id) values 
-(1,7,1), --customer call, neutral->registered
+(1,7,1),--customer call, neutral->registered
 (2,1,2),--assign, registered->assign
 (3,2,3),--dispatched, assign->dispatched
 (4,3,4),--arrive, dispatched->start of service
