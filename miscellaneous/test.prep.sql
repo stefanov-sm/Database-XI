@@ -1,4 +1,4 @@
--- Create a query that yields 3 columns: vdate, value and ballance for each day for the last two months
+-- Create a query on "test_table" below that yields 3 columns: vdate, value and ballance for each day for the last two months
 
 create table if not exists test_table 
 (
