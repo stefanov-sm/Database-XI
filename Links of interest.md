@@ -22,5 +22,6 @@
 - Windows binaries of [FDW](https://www.postgresql.org/docs/current/ddl-foreign-data.html)s & extensions [here](https://www.postgresonline.com/winextensions.php) and [here](https://www.postgresonline.com/journal/index.php?/categories/47-postgresql-versions)
 - On [Listen/Notify](https://www.postgresql.org/docs/current/sql-notify.html) and [Python](https://stackoverflow.com/questions/69246880/notifications-in-postgresql-with-pythonpsycopg2-does-not-work)
 - Good read and comments on [Life Altering Postgresql Patterns](https://mccue.dev/pages/3-11-25-life-altering-postgresql-patterns)
+- [External file](https://github.com/darold/external_file) access extension in PL/pgSQL
   
 ... and more to come 
