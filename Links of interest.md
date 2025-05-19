@@ -23,5 +23,6 @@
 - On [Listen/Notify](https://www.postgresql.org/docs/current/sql-notify.html) and [Python](https://stackoverflow.com/questions/69246880/notifications-in-postgresql-with-pythonpsycopg2-does-not-work)
 - Good read and comments on [Life Altering Postgresql Patterns](https://mccue.dev/pages/3-11-25-life-altering-postgresql-patterns)
 - [External file](https://github.com/darold/external_file) access extension in PL/pgSQL
+- Insert-only workflow illustration aka [making sausages](https://www.youtube.com/watch?v=KIsISCqecFs) (sec. 5 to 30) 
   
 ... and more to come 
