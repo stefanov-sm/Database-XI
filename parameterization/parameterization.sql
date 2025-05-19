@@ -92,7 +92,7 @@ join par.param on
 
  where sales_date between '2025-05-01' and '2025-05-31'
 group by param.id
-order by notes;
+order by substring(notes from '^\d+')::numeric;
 
 /*
 notes                                 |count |sum      |
@@ -106,4 +106,10 @@ notes                                 |count |sum      |
 7.Разни други                         | 33089| 83824.00|
 8.Плодове и зеленчуци                 |212447|536535.55|
 9.Всички с малка трайност             | 59697|150736.30|
+
+insert into par.param (description_a,code_a,description_b,code_b,notes)
+values
+ ('category', null, 'shelf_life', null, '10. Всичко продадено');
+
 */
+
