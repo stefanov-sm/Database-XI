@@ -25,5 +25,6 @@
 - [External file](https://github.com/darold/external_file) access extension in PL/pgSQL
 - Insert-only workflow illustration aka [making sausages](https://www.youtube.com/watch?v=KIsISCqecFs) (sec. 5 to 30)
 - A good read on [Postgres Partitioning Best Practices](https://karenjex.blogspot.com/2025/06/postgres-partitioning-best-practices.html)
+- Logical Replication in PostgreSQL [step-by-step guide](https://boringsql.com/posts/logication-replication-introduction/)
   
 ... and more to come 
