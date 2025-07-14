@@ -26,5 +26,6 @@
 - Insert-only workflow illustration aka [making sausages](https://www.youtube.com/watch?v=KIsISCqecFs) (sec. 5 to 30)
 - A good read on [Postgres Partitioning Best Practices](https://karenjex.blogspot.com/2025/06/postgres-partitioning-best-practices.html)
 - Logical Replication in PostgreSQL [step-by-step guide](https://boringsql.com/posts/logication-replication-introduction/)
+- [Data Microservices in Postgres](https://vibhorkumar.wordpress.com/2025/07/12/microservices-in-postgres/) - a *<ins>must</ins>* read one
   
 ... and more to come 
