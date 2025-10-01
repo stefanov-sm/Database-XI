@@ -27,5 +27,6 @@
 - A good read on [Postgres Partitioning Best Practices](https://karenjex.blogspot.com/2025/06/postgres-partitioning-best-practices.html)
 - Logical Replication in PostgreSQL [step-by-step guide](https://boringsql.com/posts/logication-replication-introduction/)
 - [Data Microservices in Postgres](https://vibhorkumar.wordpress.com/2025/07/12/microservices-in-postgres/) - a *<ins>must</ins>* read one
+- Down the rabbit hole of [Postgres 18 new features](https://xata.io/blog/going-down-the-rabbit-hole-of-postgres-18-features)
   
 ... and more to come 
