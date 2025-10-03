@@ -1,6 +1,6 @@
 # Database XI
 > [!TIP]
-> Since 2025-10-01 [DataGrip](https://www.jetbrains.com/datagrip/) database management IDE is free for non-commercial use!  
+> Since 2025-10-01 [JetBrains DataGrip](https://www.jetbrains.com/datagrip/) database management IDE is free for non-commercial use!  
 > You may give it a try. It [scores](https://www.g2.com/compare/dbeaver-vs-datagrip) a bit higher than [DBeaver](https://dbeaver.io/).
 
 ## Please remember this till the end of your professional life
