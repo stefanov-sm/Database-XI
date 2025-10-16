@@ -11,6 +11,7 @@
 > - there is **no such thing as natural order**. Order of records is **random** unless set explicitly
 >   
 
+<kbd><img width="400" src="https://github.com/user-attachments/assets/01c7a915-6be8-41be-b050-78612ad1c5ed" /></kbd>
 
 #### About foreign data - [Postgres OnLine Journal](https://www.postgresonline.com/) Windows binaries of [FDW](https://www.postgresql.org/docs/current/ddl-foreign-data.html) & extensions [here](https://www.postgresonline.com/winextensions.php) and [here](https://www.postgresonline.com/journal/index.php?/categories/47-postgresql-versions)
 #### Sample data
