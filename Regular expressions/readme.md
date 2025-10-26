@@ -1,6 +1,6 @@
 ## Regular expressions
 ### · A good [tutorial](https://www.regular-expressions.info/tutorialcnt.html) 
-### · [Extracting and substituting Text](https://www.crunchydata.com/blog/extracting-and-substituting-text-with-regular-expressions-in-postgresql) with Regular Expressions in PostgreSQL
+### · [Extracting and substituting text](https://www.crunchydata.com/blog/extracting-and-substituting-text-with-regular-expressions-in-postgresql) with Regular Expressions in PostgreSQL
 > [!IMPORTANT]
 >  PostgreSQL uses [TCL style word boundaries](https://www.postgresql.org/docs/current/functions-matching.html#POSIX-CONSTRAINT-ESCAPES-TABLE)
   
