@@ -12,6 +12,8 @@
 >   
 
 <kbd><img width="400" src="https://github.com/user-attachments/assets/01c7a915-6be8-41be-b050-78612ad1c5ed" /></kbd>
+<img width="480" height="612" alt="image" src="https://github.com/user-attachments/assets/80539a48-537a-4cb5-971c-3edaa7c56de7" />
+
 
 #### About foreign data - [Postgres OnLine Journal](https://www.postgresonline.com/) Windows binaries of [FDW](https://www.postgresql.org/docs/current/ddl-foreign-data.html) & extensions [here](https://www.postgresonline.com/winextensions.php) and [here](https://www.postgresonline.com/journal/index.php?/categories/47-postgresql-versions)
 #### Sample data
