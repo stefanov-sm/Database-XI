@@ -11,6 +11,8 @@
 #### About complexity   
 <img width="480" height="612" alt="image" src="https://github.com/user-attachments/assets/80539a48-537a-4cb5-971c-3edaa7c56de7" />
 
+#### About ORM
+[The Vietnam of Computer Science](https://github.com/stefanov-sm/Database-XI/blob/main/The%20Vietnam%20of%20Computer%20Science.pdf)
 
 #### About foreign data - [Postgres OnLine Journal](https://www.postgresonline.com/) Windows binaries of [FDW](https://www.postgresql.org/docs/current/ddl-foreign-data.html) & extensions [here](https://www.postgresonline.com/winextensions.php) and [here](https://www.postgresonline.com/journal/index.php?/categories/47-postgresql-versions)
 #### Sample data
