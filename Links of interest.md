@@ -29,5 +29,6 @@
 - [Data Microservices in Postgres](https://vibhorkumar.wordpress.com/2025/07/12/microservices-in-postgres/) - a *<ins>must</ins>* read one
 - Down the rabbit hole of [Postgres 18 new features](https://xata.io/blog/going-down-the-rabbit-hole-of-postgres-18-features)
 - About [Temporal joins](https://www.crunchydata.com/blog/temporal-joins)
+- **Very promising** - [Apache Calcite](https://calcite.apache.org/) SQL wrapper/integrator of various data types & sources
   
 ... and more to come 
