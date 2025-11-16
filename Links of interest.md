@@ -30,5 +30,6 @@
 - Down the rabbit hole of [Postgres 18 new features](https://xata.io/blog/going-down-the-rabbit-hole-of-postgres-18-features)
 - About [Temporal joins](https://www.crunchydata.com/blog/temporal-joins)
 - **Very promising** - [Apache Calcite](https://calcite.apache.org/) SQL wrapper/integrator of various data types & sources
+- **And one more** - [pg_lake: Integrate Your Data Lakehouse with Postgres](https://www.snowflake.com/en/engineering-blog/pg-lake-postgres-lakehouse-integration/)
   
 ... and more to come 
