@@ -64,4 +64,4 @@ begin
 end;
 $body$;
 
-select tr_table();
+select * from tr_table();
