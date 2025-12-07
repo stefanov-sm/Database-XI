@@ -1,4 +1,5 @@
-# Database XI
+# Database XI  
+# `SELECT * from the_world;` Why & how [SQL rocks](https://www.youtube.com/watch?v=xQ2Ln4ob7Y8)  
 ## Please remember this till the end of your professional life
 > [!IMPORTANT]
 > - **string literals** are enclosed in **single quotes**
