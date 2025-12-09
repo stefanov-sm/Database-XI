@@ -1,3 +1,6 @@
+-- PL/pgSQL
+-----------
+
 -- anonymous block
 do $$ 
 declare r record;
@@ -26,3 +29,19 @@ end;
 $body$;
 
 -- NB Functions can be overloaded
+
+-- triggers
+create or replace function delme_trigger_f()
+returns trigger
+language plpgsql as
+$$
+begin
+	raise notice 'Trigger fires';
+	return null;
+	-- return new;
+end;$$;
+
+create trigger t1 before insert or update on delme
+for each row execute function delme_trigger_f();
+
+insert into delme values (31, 'Something');
